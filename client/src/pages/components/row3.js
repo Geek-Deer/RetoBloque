@@ -8,8 +8,8 @@ export default function Row3({id , studentID, taskID, status,dueDate,initialDate
       if(status == 1){
         var Estado = "Terminada"
       }
-    var dueDateF = dueDate.substring(0,9) +  dueDate.substring(11,18)
-    var initialDateF = initialDate.substring(0,9) +  initialDate.substring(11,18)
+    var dueDateF = dueDate.substring(0,10) + " " + dueDate.substring(11,19)
+    var initialDateF = initialDate.substring(0,10) + " " + initialDate.substring(11,19)
     return (
 
         <tr>

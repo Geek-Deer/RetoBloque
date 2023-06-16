@@ -11,8 +11,8 @@ export default function Row6({id , assignmentID,assignmentResponseID,status,init
       if(status == 2){
         var Estado = "Rechazada"
       }
-    var endAvailableDateF = endAvailableDate.substring(0,9) +  endAvailableDate.substring(11,18)
-    var initialAvailableDateF = initialAvailableDate.substring(0,9) +  initialAvailableDate.substring(11,18)
+    var endAvailableDateF = endAvailableDate.substring(0,10) + " " + endAvailableDate.substring(11,19)
+    var initialAvailableDateF = initialAvailableDate.substring(0,10)+ " "+  initialAvailableDate.substring(11,19)
     return (
 
         <tr>
