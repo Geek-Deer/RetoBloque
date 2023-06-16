@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Table2 from './components/table2'; 
-import { Link } from "react-router-dom";
+
 
 function callApi4() {
   const id = document.getElementById('id').value;
@@ -39,10 +39,12 @@ const UpdateAct = (props) => {
       <div>
       <Table2 data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
+      <form onSubmit={() => {callApi4(); window.location.reload(); }}>
       <input type="text" placeholder="id:" className="input" id='id' />
       <input type="text" placeholder="nombre:" className="input" id='nombre'/>
       <input type="text" placeholder="descripción:" className="input" id='decription' />
-      <button className="defaultButton"onClick={callApi4}><Link to="/actividades">Actualizar</Link></button>
+      <input type='submit' className="defaultButton" value="Actualizar" ></input>
+      </form>
       </div>
       </div>
     );

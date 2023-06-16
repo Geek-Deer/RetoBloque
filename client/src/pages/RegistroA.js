@@ -72,11 +72,14 @@ const RegistroA = (props) =>{
         </div>
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
-      <input type="text" placeholder="id:" className="input" id='id' />
-      <input type="text" placeholder="Matricula" className="input" id='matricula' />
-      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' />
-      <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled/>
-      <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled/>
+      <form onSubmit={() => { callApi3(); window.location.reload(); }} >
+      <input type="text" placeholder="id:" className="input" id='id' required/>
+      <input type="text" placeholder="Matricula" className="input" id='matricula' required/>
+      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required/>
+      <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
+      <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
+      <input type='submit' className="defaultButton" value="Registrar"></input>
+      </form>
       <Calendar options={{
           format: 'YYYY-MM-DD HH:MM:SS',
           time: true,
@@ -90,8 +93,8 @@ const RegistroA = (props) =>{
           time: true,
         }}/>
         <Table3 data={data}/>
+        <button className="defaultButton"><Link to="/Asignar">Regresar</Link></button>
       </div>
-      <button className="defaultButton" onClick={callApi3}><Link to="/Asignar">Registrar</Link></button>
       </div>
       </div>
       </>

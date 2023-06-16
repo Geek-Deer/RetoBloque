@@ -31,11 +31,14 @@ const RegistroAct = (props) =>{
       <div > 
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
-      <input type="text" placeholder="ID:" className="input" id='id' />
-      <input type="text" placeholder="Nombre:" className="input" id='name' />
-      <input type="text" placeholder="Descripción:" className="input" id='decription' />
+      <form onSubmit={() => { callApi3(); window.location.reload(); }} >
+      <input type="text" placeholder="ID:" className="input" id='id' required/>
+      <input type="text" placeholder="Nombre:" className="input" id='name' required/>
+      <input type="text" placeholder="Descripción:" className="input" id='decription' required/>
+      <input type='submit' className="defaultButton" value="Registrar"></input>
+      </form>
       </div>
-      <button className="defaultButton" onClick={callApi3}><Link to="/actividades">Registrar</Link></button>
+      <button className="defaultButton"><Link to="/actividades">Regresar</Link></button>
       </div>
       </div>
       </>

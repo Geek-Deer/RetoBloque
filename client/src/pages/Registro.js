@@ -33,13 +33,16 @@ const Registro = (props) =>{
       <div > 
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
-      <input type="text" placeholder="matricula:" className="input" id='id' />
-      <input type="text" placeholder="nombre:" className="input" id='nombre' />
-      <input type="text" placeholder="password:" className="input" id='password' />
-      <input type="text" placeholder="email:" className="input" id='email' />
-      <input type="text" placeholder="equipo:" className="input" id='team' />
+      <form onSubmit={() => { callApi3(); window.location.reload(); }}>
+      <input type="text" placeholder="matricula:" className="input" id='id' required/>
+      <input type="text" placeholder="nombre:" className="input" id='nombre' required/>
+      <input type="text" placeholder="password:" className="input" id='password' required/>
+      <input type="text" placeholder="email:" className="input" id='email' required/>
+      <input type="text" placeholder="equipo:" className="input" id='team' required/>
+      <input type='submit' className="defaultButton" value="Registrar" ></input>
+      </form>
       </div>
-      <button className="defaultButton" onClick={callApi3}><Link to="/">Registrar</Link></button>
+      <button className="defaultButton" ><Link to="/">Regresar</Link></button>
       </div>
       </div>
       </>

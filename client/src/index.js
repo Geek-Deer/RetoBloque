@@ -11,6 +11,7 @@ import RegistroAct from "./pages/RegistroAct";
 import UpdateAct from "./pages/UpdateAct";
 import Asignaciones from "./pages/asignaciones";
 import RegistroA from "./pages/RegistroA";
+import UpdateA from './pages/UpdateA';
 
 export default function App() {
   return (
@@ -22,9 +23,10 @@ export default function App() {
           <Route path="Update" element={<Update />} />
           <Route path="Actividades" element={<Actividades />} />
           <Route path="RegistroAct" element={<RegistroAct />} />
-          <Route path="RegistroA" element={<RegistroA />} />
           <Route path="UpdateAct" element={<UpdateAct />} />
           <Route path="Asignar" element={<Asignaciones />} />
+          <Route path="RegistroA" element={<RegistroA />} />
+          <Route path="UpdateA" element={<UpdateA />} />
         </Route >
       </Routes>
     </Router>

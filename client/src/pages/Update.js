@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Table from './components/table'; 
-import { Link } from "react-router-dom";
+
 
 function callApi4() {
   const studentID = document.getElementById('id').value;
@@ -40,12 +40,14 @@ const Update = (props) => {
       <div>
       <Table data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
-      <input type="text" placeholder="matricula:" className="input" id='id' />
-      <input type="text" placeholder="nombre:" className="input" id='nombre'/>
-      <input type="text" placeholder="password:" className="input" id='password' />
-      <input type="text" placeholder="email:" className="input" id='email'/>
-      <input type="text" placeholder="equipo:" className="input" id='team' />
-      <button className="defaultButton"onClick={callApi4}><Link to="/">Actualizar</Link></button>
+      <form onSubmit={() => {callApi4(); window.location.reload(); }}>
+      <input type="text" placeholder="matricula:" className="input" id='id' required/>
+      <input type="text" placeholder="nombre:" className="input" id='nombre' required/>
+      <input type="text" placeholder="password:" className="input" id='password' required/>
+      <input type="text" placeholder="email:" className="input" id='email' required/>
+      <input type="text" placeholder="equipo:" className="input" id='team' required/>
+      <input type='submit' className="defaultButton" value="Actualizar" ></input>
+      </form>
       </div>
       </div>
     );

@@ -19,6 +19,9 @@ const Layout = () => {
           <li>
             <Link to="/Asignar">Asignaciones</Link>
           </li>
+          <li>
+            <Link to="/UpdateA">Actualizar Asignaciones</Link>
+          </li>
         </ul> 
       </nav>
       <Outlet />

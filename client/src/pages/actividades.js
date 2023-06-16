@@ -34,7 +34,7 @@ const Actividades = (props) => {
     <div className="header-container">
       <Navbar brand="Lista de actividades" />
         <button className="defaultButton der" >
-        <Link to="/RegistroA">Registrar actividad</Link>
+        <Link to="/RegistroAct">Registrar actividad</Link>
       </button>
       </div>
     <div > 
@@ -44,9 +44,11 @@ const Actividades = (props) => {
 
       <h2>Borrar Actividad</h2>
       <div>
-      <input type="text" placeholder="ID:" className="input" id='id3' />
+      <form onSubmit={() => { callApi5(); window.location.reload(); }}>
+      <input type="text" placeholder="ID:" className="input" id='id3' required/>
+      <input type='submit' className="defaultButton" value="Borrar" ></input>
+      </form>
       </div>
-      <button className="defaultButton" onClick={() => { callApi5(); window.location.reload(); }}>Borrar</button>
       </div>
     </div>
     </>
