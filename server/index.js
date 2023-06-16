@@ -144,7 +144,7 @@ app.delete('/api/assignments/:id', (req, res) => {
 app.put('/api/assignments/:id', (req, res) => {
   const { studentID, taskID, status, dueDate, initialDate } = req.body;
   const { id } = req.params;
-  const query = `UPDATE assignments SET id=${id}, studentID="${studentID}", taskID=${taskID}, status=${status}  dueDate=${dueDate}, initialDate=${initialDate} WHERE id=${id}`;
+  const query = `UPDATE assignment SET id=${id}, studentID="${studentID}", taskID=${taskID}, status=${status}  dueDate=${dueDate}, initialDate=${initialDate} WHERE id=${id}`;
   pool.query(query, (err, result) => {
     if (err) {
       console.error('Error executing database query:', err);
