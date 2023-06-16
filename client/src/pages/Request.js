@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function callApi6() {
   const id = document.getElementById('id').value;
-  const select = document.getElementById('team').value;
+  const select = document.getElementById('selection').value;
 
   if (select === 1){
       const url = `/api/accept`;
