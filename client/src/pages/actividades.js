@@ -33,7 +33,7 @@ const Actividades = (props) => {
     <div className='derecha' >
     <div className="header-container">
       <Navbar brand="Lista de actividades" />
-        <button className="defaultButton der" >
+        <button className="defaultButton over dropShadow" >
         <Link to="/RegistroAct">Registrar actividad</Link>
       </button>
       </div>

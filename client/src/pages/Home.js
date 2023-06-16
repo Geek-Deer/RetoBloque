@@ -32,7 +32,7 @@ const Home = (props) => {
     <div className='derecha' >
     <div className="header-container">
       <Navbar brand="Gestión de imaginantes" />
-        <button className="defaultButton der" >
+        <button className="defaultButton over dropShadow" >
         <Link to="/Registro">Registrar imaginante</Link>
       </button>
       </div>

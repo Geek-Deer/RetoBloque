@@ -33,7 +33,7 @@ const Asignaciones = (props) => {
     <div className='derecha' >
     <div className="header-container">
       <Navbar brand="Lista de asignaciones" />
-        <button className="defaultButton der" >
+        <button className="defaultButton over dropShadow" >
         <Link to="/RegistroA">Registrar asignacion</Link>
       </button>
       </div>
