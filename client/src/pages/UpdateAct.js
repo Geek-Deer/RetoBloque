@@ -43,7 +43,7 @@ const UpdateAct = (props) => {
       <input type="text" placeholder="id:" className="input" id='id'required maxLength={3} />
       <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
       <textarea type="text" placeholder="descripción:" className="input" id='decription' maxLength={250} require/>
-      <input type='submit' className="defaultButton" value="Actualizar" ></input>
+      <input type='submit' className="defaultButton" value="Actualizar" />
       </form>
       </div>
       </div>

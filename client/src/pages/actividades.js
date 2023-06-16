@@ -8,16 +8,16 @@ import { Link } from "react-router-dom";
 function callApi5() {
   const id = document.getElementById('id3').value;
   
-  const url = `/api/assignments/${id}`;
+  const url = `/api/task/${id}`;
 
   axios.delete(url)
     .then(response => {
       console.log(response.data);
-      alert('El imaginante ha sido eliminado de la base de datos');
+      alert('La actividad ha sido eliminado de la base de datos');
     })
     .catch(error => {
       console.error(error);
-      alert('Error eliminando al imaginante');
+      alert('Error eliminando la actividad de la base de datos');
     });
 }
 
