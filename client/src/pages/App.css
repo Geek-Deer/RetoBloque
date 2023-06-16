@@ -15,6 +15,12 @@
   margin: 12%;
 }
 
+select{
+  padding: 2%;
+  font-size: 5vw;
+  margin: 0 1% 1% 0;
+}
+
 .pair{
   display: flex;
 }

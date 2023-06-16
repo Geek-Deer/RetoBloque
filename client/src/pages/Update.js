@@ -43,13 +43,12 @@ const Update = (props) => {
           </div>
           <div className='container dropShadow'>
             <h2 className="home-text09">Ingresa los nuevos datos</h2>
-            <form onSubmit={() => {callApi4(); window.location.reload(); }}>
+            <form id="updt"onSubmit={() => {callApi4(); window.location.reload(); }}>
               <input type="text" placeholder="matricula:" className="input" id='id' required maxLength={9} minLength={9}/>
               <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
               <input type="text" placeholder="password:" className="input" id='password' required maxLength={20}/>
               <input type="text" placeholder="email:" className="input" id='email' required maxLength={80}/>
-              //<input type="number" placeholder="equipo:" className="input" id='team' required maxLength={2}/>
-              <select name="equipo:" id="team" required>
+              <select type="select"  name="equipo:" id="team" form='updt' required>
                 <option value={0}>Comunicación</option>
                 <option value={1}>Contenido</option>
                 <option value={2}>Estaciones de juego</option>
