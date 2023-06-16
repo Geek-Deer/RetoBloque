@@ -40,9 +40,9 @@ const UpdateAct = (props) => {
       <Table2 data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
       <form onSubmit={() => {callApi4(); window.location.reload(); }}>
-      <input type="text" placeholder="id:" className="input" id='id'required maxLength={3} />
-      <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
-      <textarea type="text" placeholder="descripción:" className="input" id='decription' maxLength={250} require/>
+      <input  type="number" placeholder="ID:" className="input" id='id'required maxLength={3} />
+      <input type="text" placeholder="Nombre:" className="input" id='nombre' required maxLength={80}/>
+      <textarea type="text" placeholder="Descripción:" className="input" id='decription' maxLength={250} require/>
       <input type='submit' className="defaultButton" value="Actualizar" />
       </form>
       </div>

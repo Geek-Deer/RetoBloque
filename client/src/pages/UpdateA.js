@@ -55,8 +55,8 @@ const UpdateA = (props) => {
       <form onSubmit={() => { callApi4(); window.location.reload(); }} >
       <input type="text" placeholder="id:" className="input" id='id' required maxLength={3}/>
       <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
-      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
-      <input type="text" placeholder="Estatus" className="input" id='status' required maxLength={2}/>
+      <input type="number" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
+      <input type="number" placeholder="Estatus" className="input" id='status' required maxLength={2}/>
       <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
       <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
       <input type='submit' className="defaultButton" value="Registrar"></input>

@@ -45,7 +45,7 @@ const Asignaciones = (props) => {
       <h2>Borrar Asignacion</h2>
       <div>
       <form onSubmit={() => { callApi5(); window.location.reload(); }}>
-      <input type="text" placeholder="ID:" className="input" id='id3' required maxLength={3}/>
+      <input type="number" placeholder="ID:" className="input" id='id3' required maxLength={3}/>
       <input type='submit' className="defaultButton" value="Borrar" ></input>
       </form>
       </div>

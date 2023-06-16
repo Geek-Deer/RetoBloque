@@ -73,9 +73,9 @@ const RegistroA = (props) =>{
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
       <form onSubmit={() => { callApi3(); window.location.reload(); }} >
-      <input type="text" placeholder="id:" className="input" id='id' required maxLength={3}/>
+      <input type="number" placeholder="ID:" className="input" id='id' required maxLength={3}/>
       <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
-      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
+      <input type="number" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
       <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required />
       <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
       <input type='submit' className="defaultButton" value="Registrar"></input>
