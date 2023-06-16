@@ -17,7 +17,7 @@
 
 select{
   padding: 2%;
-  font-size: 5vw;
+  font-size:calc(8px + .2vw); 
   margin: 0 1% 1% 0;
 }
 

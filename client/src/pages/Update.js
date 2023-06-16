@@ -48,10 +48,11 @@ const Update = (props) => {
               <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
               <input type="text" placeholder="password:" className="input" id='password' required maxLength={20}/>
               <input type="text" placeholder="email:" className="input" id='email' required maxLength={80}/>
+              <label for="team">Equipo:</label>
               <select type="select"  name="equipo:" id="team" form='updt' required>
-                <option value={0}>Comunicación</option>
-                <option value={1}>Contenido</option>
-                <option value={2}>Estaciones de juego</option>
+                <option value={1}>Comunicación</option>
+                <option value={2}>Contenido</option>
+                <option value={3}>Estaciones de juego</option>
               </select>
               <input type='submit' className="defaultButton" value="Actualizar" ></input>
             </form>
