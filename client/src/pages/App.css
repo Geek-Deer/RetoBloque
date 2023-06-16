@@ -43,6 +43,7 @@ textarea{
 
 .tableContainer > div {
   flex: 1;
+  flex-direction: row;
 }
 
 .crud{
