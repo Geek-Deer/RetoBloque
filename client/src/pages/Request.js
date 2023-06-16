@@ -3,6 +3,17 @@ import React from "react";
 import Navbar from './components/Navbar';
 import Table6 from './components/table6';  
 
+function hideAcepted() {
+    document.getElementById("acepted").style.display = "none";
+    document.getElementById("rejected").style.display = "block";
+    
+  }
+
+  function hideRejected() {
+    document.getElementById("rejected").style.display = "none";
+    document.getElementById("acepted").style.display = "block";
+  }
+
 function getRow() {
     alert(document.getElementById("myTable").rows[0]);
   }
@@ -33,6 +44,7 @@ const Request = (props) => {
     <div className="header-container">
       <Navbar brand="Lista de solicitudes" />
       </div>    
+
     <div className='tableContainer paired'>
         <div className='r1'>
             <h2>Lista de solicitudes pendientes</h2>
@@ -41,9 +53,15 @@ const Request = (props) => {
         </div>
         <div className='r1'>
             <h2>Lista de solicitudes revisadas</h2>
-            <button className="defaultButton" onClick={Data=data2}>Solicitudes Aceptadas</button>
-            <button className="defaultButton" onClick={Data=data3}>Solicitudes Rechazadas</button>
-            <Table6 data={Data}/>
+            <button className="defaultButton" onClick={hideRejected}>Solicitudes Aceptadas</button>
+            <button className="defaultButton" onClick={hideAcepted}>Solicitudes Rechazadas</button>
+            <div id="acepted">
+                <Table6 data={data2}/>
+            </div>
+            <div id="rejected">
+                <Table6 data={data3}/>
+            </div>
+            
         </div>
             
         </div>
