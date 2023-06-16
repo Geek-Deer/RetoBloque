@@ -10,7 +10,7 @@ function callApi3() {
     const name = document.getElementById('nombre').value;
     const password = document.getElementById('password').value;
     const email = document.getElementById('email').value;
-    const team = document.getElementById('team').value;
+    const team = 0;
     
     const uri = `/api/imaginantes`;
   
@@ -38,7 +38,6 @@ const Registro = (props) =>{
           <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
           <input type="text" placeholder="password:" className="input" id='password' required maxLength={20}/>
           <input type="text" placeholder="email:" className="input" id='email' required maxLength={80}/>
-          <input type="text" placeholder="equipo:" className="input" id='team' required maxLength={2}/>
         <input type='submit' className="defaultButton" value="Registrar" ></input>
       </form>
       </div>
