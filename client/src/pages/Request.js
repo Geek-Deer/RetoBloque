@@ -21,7 +21,7 @@ function getRow() {
 const Request = (props) => {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-      fetch(`/api/requests`)
+      fetch(`/api/requests0`)
         .then((res) => res.json())
         .then((data) => setData(data));
     }, []);
