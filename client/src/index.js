@@ -12,6 +12,7 @@ import UpdateAct from "./pages/UpdateAct";
 import Asignaciones from "./pages/asignaciones";
 import RegistroA from "./pages/RegistroA";
 import UpdateA from './pages/UpdateA';
+import Request from './pages/Request';
 
 export default function App() {
   return (
@@ -27,11 +28,10 @@ export default function App() {
           <Route path="Asignar" element={<Asignaciones />} />
           <Route path="RegistroA" element={<RegistroA />} />
           <Route path="UpdateA" element={<UpdateA />} />
+          <Route path="Request" element={<Request />} />
         </Route >
       </Routes>
     </Router>
   )
 }
 ReactDOM.render(<App />, document.getElementById('app'))
-
-

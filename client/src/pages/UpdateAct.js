@@ -4,7 +4,6 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import Table2 from './components/table2'; 
 
-
 function callApi4() {
   const id = document.getElementById('id').value;
   const name = document.getElementById('nombre').value;
@@ -45,7 +44,8 @@ const UpdateAct = (props) => {
           <form onSubmit={() => {callApi4(); window.location.reload(); }}>
           <input type="text" placeholder="id:" className="input" id='id'required maxLength={3} />
           <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
-          <textarea type="text" placeholder="descripción:" className="input upd" id='decription' maxLength={250} require/>
+          <textarea type="text" placeholder="descripción:" className="upd" id='decription' maxLength={250} require/>
+          <br></br>
           <input type='submit' className="defaultButton" value="Actualizar" />
           </form>
         </div>

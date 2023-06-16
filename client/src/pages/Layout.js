@@ -23,6 +23,9 @@ const Layout = () => {
           <li>
             <Link to="/UpdateA">Actualizar Asignaciones</Link>
           </li>
+          <li>
+            <Link to="/Request">Solicitudes de cambio</Link>
+          </li>
         </ul> 
       </nav>
       <Outlet />

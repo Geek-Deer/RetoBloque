@@ -6,6 +6,8 @@ import Table3 from './components/table3';
 import { useState } from "react";
 import Calendar from './components/Calendar';
 
+
+
 function callApi4() {
   const id = document.getElementById('id').value;
   const studentID = document.getElementById('matricula').value;
@@ -64,7 +66,6 @@ const UpdateA = (props) => {
         <input type="text" placeholder="Estatus" className="input" id='status' required maxLength={2}/>
         <input type="hidden" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
         <input type="hidden" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
-        <input type='submit' className="defaultButton" value="Registrar"></input>
         <Calendar className="input"options={{
           placeholder: "Fecha de inicio",
           onchange: handleCalendarChange2,
@@ -77,6 +78,8 @@ const UpdateA = (props) => {
             placeholder: "Fecha de entrega",
           onchange: handleCalendarChange,
           }}/>
+          <br></br>
+          <input type='submit' className="defaultButton" value="Registrar"></input>
       </form>
      </div>
       

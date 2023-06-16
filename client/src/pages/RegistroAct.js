@@ -34,7 +34,7 @@ const RegistroAct = (props) =>{
       <form onSubmit={() => { callApi3(); window.location.reload(); }} >
         <input type="text" placeholder="ID:" className="input" id='id' required maxLength={3}/>
         <input type="text" placeholder="Nombre:" className="input" id='name' required maxLength={80}/>
-        <textarea type="text" placeholder="Descripción:" className="input" id='decription' maxLength={250} required/>
+        <textarea type="text" placeholder="Descripción:"  id='decription' maxLength={250} required/>
       <input type='submit' className="defaultButton" value="Registrar"></input>
       </form>
       </div>

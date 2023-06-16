@@ -286,6 +286,39 @@ app.get('/api/users', (req, res) => {
   });
 });
 
+app.get('/api/requests0', (req, res) => {
+  pool.query("SELECT * FROM request WHERE status=0", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.get('/api/requests1', (req, res) => {
+  pool.query("SELECT * FROM request WHERE status=1", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.get('/api/requests2', (req, res) => {
+  pool.query("SELECT * FROM request WHERE status=2", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
