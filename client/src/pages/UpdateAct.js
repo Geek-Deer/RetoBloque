@@ -23,7 +23,7 @@ function callApi4() {
         alert('Error al buscar la actividad');
       });
   }
- 
+
 const UpdateAct = (props) => {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
@@ -37,14 +37,18 @@ const UpdateAct = (props) => {
       <div className='derecha' >
       <Navbar brand ="Actualizar datos de las actividades" />
       <div>
-      <Table2 data={info}/>
-      <h2 className="home-text09">Ingresa los nuevos datos</h2>
-      <form onSubmit={() => {callApi4(); window.location.reload(); }}>
-      <input  type="number" placeholder="ID:" className="input" id='id'required maxLength={3} />
-      <input type="text" placeholder="Nombre:" className="input" id='nombre' required maxLength={80}/>
-      <textarea type="text" placeholder="Descripción:" className="input" id='decription' maxLength={250} require/>
-      <input type='submit' className="defaultButton" value="Actualizar" />
-      </form>
+        <div className='tableContainer'>
+          <Table2 data={info}/>
+        </div>
+        <div className='container dropShadow'>
+          <h2 className="home-text09">Ingresa los nuevos datos</h2>
+          <form onSubmit={() => {callApi4(); window.location.reload(); }}>
+          <input type="text" placeholder="id:" className="input" id='id'required maxLength={3} />
+          <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
+          <textarea type="text" placeholder="descripción:" className="input upd" id='decription' maxLength={250} require/>
+          <input type='submit' className="defaultButton" value="Actualizar" />
+          </form>
+        </div>
       </div>
       </div>
     );

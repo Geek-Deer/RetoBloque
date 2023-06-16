@@ -3,9 +3,10 @@ const Layout = () => {
   return (
     <>
       <nav>
+        
         <ul>
           <li>
-            <Link to="/">Imaginantes</Link>
+            <img className = "logo"src="https://meiquer.mx/static/logo-meiquer-72606e65ccfae2d8a7a43745ac48a593.svg" alt = "EstacionMeiquer404"></img><Link to="/">Imaginantes</Link>
           </li>
           <li>
             <Link to="/Update">Actualizar</Link>

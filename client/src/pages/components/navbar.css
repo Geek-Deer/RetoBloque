@@ -17,7 +17,7 @@ ul {
     padding: 0;
     width: 10em;
     background-color: #36b4c5;
-    height: 80vh;
+    height: 85vh;
     position: absolute; 
     z-index: 10;
     border-radius: 5px;
@@ -35,8 +35,7 @@ ul {
     padding: 2vh 2vw;
     text-decoration: none;
     text-align: center;
-    font-size: 15px;
-    font-size: 1.2vw; 
+    font-size:calc(12px + .2vw); 
   }
   
   li a:hover {

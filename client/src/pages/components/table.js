@@ -2,14 +2,13 @@ import * as React from 'react';
 import Row from './row.js';
 import "./table.css"
 
-
 function Table({data}) {
     const table = data?.map(imaginante =>
         <Row id = {imaginante.studentID} nombre = {imaginante.name} password ={imaginante.password} email ={imaginante.email} tareas = {imaginante.tasks} equipo = {imaginante.team}/>
     ); 
     return(
         <div>
-        <table>
+        <table className="table table-hover table-dark">
             <thead>
             <tr>
                 <th >Matricula</th>
@@ -28,4 +27,3 @@ function Table({data}) {
         );
       };
   export default Table;
-

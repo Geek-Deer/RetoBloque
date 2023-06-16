@@ -36,15 +36,15 @@ const Home = (props) => {
         <Link to="/Registro">Registrar imaginante</Link>
       </button>
       </div>
-    <div > 
+    <div className='tableContainer'> 
       <Table data={data}/>
     </div>
-    <div>
+    <div className='container dropShadow'>
 
       <h2>Borrar imaginante</h2>
       <div>
       <form onSubmit={() => { callApi5(); window.location.reload(); }}>
-      <input type="text" placeholder="ID:" className="input" id='id3' required maxLength={3}/>
+      <input type="text" placeholder="ID:" className="input" id='id3' required/>
       <input type='submit' className="defaultButton" value="Borrar" ></input>
       </form>
       </div>

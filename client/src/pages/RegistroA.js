@@ -10,7 +10,7 @@ import Table4 from './components/table4';
 import Table5 from './components/table5';
 
 function callApi3() {
-    const id = document.getElementById('id').value;
+    const id = null;
     const studentID = document.getElementById('matricula').value;
     const taskID = document.getElementById('IDtarea').value;
     const dueDate = document.getElementById('dueDate').value;
@@ -66,16 +66,16 @@ const RegistroA = (props) =>{
       <div className='derecha' >
       <Navbar brand ="Registro asignaciones" />
       <div > 
-        <div>
-            <Table4 data={data2}/>
-            <Table5 data={data3}/>
+        <div className='tableContainer paired'>
+          <div className='r1'><Table4 data={data2}/></div>
+          <div className='r1'><Table5 data={data3}/></div>
+            
         </div>
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
       <form onSubmit={() => { callApi3(); window.location.reload(); }} >
-      <input type="number" placeholder="ID:" className="input" id='id' required maxLength={3}/>
       <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
-      <input type="number" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
+      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
       <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required />
       <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
       <input type='submit' className="defaultButton" value="Registrar"></input>

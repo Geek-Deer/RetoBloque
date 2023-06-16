@@ -1,48 +1,69 @@
-//Express
 const express = require("express");
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { urlencoded } = require('body-parser');
-const PORT = process.env.PORT || 3001;
+const mysql = require('mysql');
+const path = require('path');
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-
-//App
 app.use(bodyParser.json());
 app.use(cors());
-app.use(bodyParser({urlencoded:true}))
 
-//SQL
-var mysql = require('mysql');
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "admin",
-  password: "",
-  database: "gestionImaginantes"
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: "us-cdbr-east-06.cleardb.net",
+  user: "b272999dd8f60e",
+  password: "591d2506",
+  database: "heroku_702bf14e05f0f6e"
 });
-con.connect((error) => {
-  if (error) {
-    console.error('Error conectando a la base de datos: ', error);
+
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+pool.getConnection((err, connection) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
     return;
   }
-  console.log('Conexion con la base de datos establecida');
+
+  console.log('Connected to the database');
+
+  connection.release();
 });
 
-//ENDPOINTS Imaginantes
-app.get('/api/imaginantes',(req,res)=>{
-  con.query("SELECT * FROM user", (error, results, fields) => {
-    if (error) throw error;
+app.get('/api/imaginantes', (req, res) => {
+  pool.query("SELECT * FROM user", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json(results);
   });
 });
 
-app.post('/api/imaginantes/', (req, res) => {
-  const { studentID , name, password, email, team } = req.body;
-  const sql = `INSERT INTO user (studentID , name, password, email, tasks, team) VALUES (?, ?, ?, ?, 0, ?)`;
-  const values = [studentID , name, password, email, team];
+app.get('/api/imaginantes/:id', (req, res) => {
+  const { id } = req.params;
+  pool.query(`SELECT * FROM user WHERE studentID = ${id}`, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
 
-  con.query(sql, values, (error, results, fields) => {
-    if (error) throw error;
+app.post('/api/imaginantes', (req, res) => {
+  const { studentID, name, password, email, team } = req.body;
+  const sql = `INSERT INTO user (studentID, name, password, email, tasks, team) VALUES (?, ?, ?, ?, 0, ?)`;
+  const values = [studentID, name, password, email, team];
+
+  pool.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json({ message: 'El imaginante se ha agregado con exito' });
   });
 });
@@ -51,38 +72,54 @@ app.delete('/api/imaginantes/:id', (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM user WHERE studentID = "${id}"`;
 
-  con.query(sql, (error, result) => {
-    if (error) throw error;
+  pool.query(sql, (error, result) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     console.log(`Deleted ${result.affectedRows} row(s)`);
     res.send(`El imaginante con el id: ${id} ha sido eliminado`);
   });
 });
 
 app.put('/api/imaginantes/:id', (req, res) => {
-  const {studentID,name, password, email, tasks, team} = req.body;
- 
+  const { studentID, name, password, email, tasks, team } = req.body;
+  const { id } = req.params;
+
   const query = `UPDATE user SET name="${name}", password="${password}", email="${email}", team=${team} WHERE studentID="${studentID}";`;
-  con.query(query, (err, result) => {
-    if (err) throw err;
+  pool.query(query, (err, result) => {
+    if (err) {
+      console.error('Error executing database query:', err);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.send(`El imaginante con el id ${studentID} ha sido actualizado`);
   });
 });
 
-//Endpoints Assignments
-app.get('/api/assignments',(req,res)=>{
-  con.query("SELECT * FROM assignment", (error, results, fields) => {
-    if (error) throw error;
+app.get('/api/assignments', (req, res) => {
+  pool.query("SELECT * FROM assignment", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json(results);
   });
 });
 
 app.post('/api/assignments', (req, res) => {
-  const { id, studentID , taskID, dueDate, initialDate } = req.body;
-  const sql = `INSERT INTO assignment (id, studentID , taskID, status, dueDate, initialDate) VALUES (?, ?, ?, "Started", ?, ?)`;
-  const values = [id, studentID , taskID, dueDate, initialDate];
+  const { id, studentID, taskID, dueDate, initialDate } = req.body;
+  const sql = `INSERT INTO assignment (id, studentID, taskID, status, dueDate, initialDate) VALUES (?, ?, ?, "Started", ?, ?)`;
+  const values = [id, studentID, taskID, dueDate, initialDate];
 
-  con.query(sql, values, (error, results, fields) => {
-    if (error) throw error;
+  pool.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json({ message: 'La asignación se ha agregado con exito' });
   });
 });
@@ -91,48 +128,120 @@ app.delete('/api/assignments/:id', (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM assignment WHERE id = "${id}"`;
 
-  con.query(sql, (error, result) => {
-    if (error) throw error;
+  pool.query(sql, (error, result) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     console.log(`Deleted ${result.affectedRows} row(s)`);
     res.send(`La asignación con el id: ${id} ha sido eliminada`);
   });
 });
 
 app.put('/api/assignments/:id', (req, res) => {
-  const {studentID , taskID, status, dueDate, initialDate} = req.body;
-  const {id} = req.params;
+  const { studentID, taskID, status, dueDate, initialDate } = req.body;
+  const { id } = req.params;
   const query = `UPDATE assignments SET id=${id}, studentID="${studentID}", taskID=${taskID}, status=${status}  dueDate=${dueDate}, initialDate=${initialDate} WHERE id=${id}`;
-  con.query(query, (err, result) => {
-    if (err) throw err;
+  pool.query(query, (err, result) => {
+    if (err) {
+      console.error('Error executing database query:', err);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.send(`La asignación con el id ${id} ha sido actualizada`);
   });
 });
 
-//Endpoints request
-app.get('/api/request',(req,res)=>{
-  con.query("SELECT * FROM request", (error, results, fields) => {
-    if (error) throw error;
+
+/*  WIP///////WIP///////WIP////////WIP
+app.get('/api/announcements', (req, res) => {
+  pool.query("SELECT * FROM announcement", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json(results);
   });
 });
 
-//Endpoints Task 
-app.get('/api/task',(req,res)=>{
-  con.query("SELECT * FROM task", (error, results, fields) => {
-    if (error) throw error;
+app.post('/api/announcements', (req, res) => {
+  const { id, content, createdAt } = req.body;
+  const sql = `INSERT INTO announcement (id, content, createdAt) VALUES (?, ?, ?)`;
+  const values = [id, content, createdAt];
+
+  pool.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json({ message: 'El Anuncio se ha agregado con exito' });
+  });
+});
+
+app.delete('/api/announcements/:id', (req, res) => {
+  const { id } = req.params;
+  const sql = `DELETE FROM announcement WHERE id = ${id}`;
+
+  pool.query(sql, (error, result) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    console.log(`Deleted ${result.affectedRows} row(s)`);
+    res.send(`La asignación con el id: ${id} ha sido eliminada`);
+  });
+});
+WIP///////WIP///////WIP////////WIP*/
+
+app.get('/api/request', (req, res) => {
+  pool.query("SELECT * FROM request", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json(results);
   });
 });
 
+app.get('/api/task', (req, res) => {
+  pool.query("SELECT * FROM task", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
 
 app.post('/api/task', (req, res) => {
   const { id, name, decription } = req.body;
   const sql = `INSERT INTO task (id, name, decription) VALUES (?, ?, ?)`;
   const values = [id, name, decription];
 
-  con.query(sql, values, (error, results, fields) => {
-    if (error) throw error;
+  pool.query(sql, values, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.json({ message: 'La tarea se ha agregado con exito' });
+  });
+});
+
+app.get('/api/tasks', (req, res) => {
+  pool.query("SELECT id, name FROM task;", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
   });
 });
 
@@ -140,39 +249,46 @@ app.delete('/api/task/:id', (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM task WHERE id = ${id}`;
 
-  con.query(sql, (error, result) => {
-    if (error) throw error;
+  pool.query(sql, (error, result) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     console.log(`Deleted ${result.affectedRows} row(s)`);
     res.send(`La tarea con el id: ${id} ha sido eliminada`);
   });
 });
 
 app.put('/api/task/:id', (req, res) => {
-  const {name, decription} = req.body;
-  const {id} = req.params;
+  const { name, decription } = req.body;
+  const { id } = req.params;
   const query = `UPDATE task SET name="${name}", decription="${decription}" WHERE id=${id}`;
-  con.query(query, (err, result) => {
-    if (err) throw err;
+  pool.query(query, (err, result) => {
+    if (err) {
+      console.error('Error executing database query:', err);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
     res.send(`La tarea con el id ${id} ha sido actualizada`);
   });
 });
 
+app.get('/api/users', (req, res) => {
+  pool.query("SELECT name, studentID FROM user;", (error, results, fields) => {
+    if (error) {
+      console.error('Error executing database query:', error);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.json(results);
+  });
+});
 
-app.get('/api/users',(req,res)=>{
-  con.query("SELECT name, studentID FROM user;", (error, results, fields) => {
-    if (error) throw error;
-    res.json(results);
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
-});
-app.get('/api/tasks',(req,res)=>{
-  con.query("SELECT id, name FROM task;", (error, results, fields) => {
-    if (error) throw error;
-    res.json(results);
-  });
-});
 
 app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+  console.log(`Server listening on port ${PORT}`);
 });
-
-    

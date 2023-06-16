@@ -37,15 +37,15 @@ const Actividades = (props) => {
         <Link to="/RegistroAct">Registrar actividad</Link>
       </button>
       </div>
-    <div > 
+    <div className='tableContainer'> 
     <Table2 data={data}/>
     </div>
-    <div>
+    <div className='container dropShadow'>
 
       <h2>Borrar Actividad</h2>
       <div>
       <form onSubmit={() => { callApi5(); window.location.reload(); }}>
-      <input type="number" placeholder="ID:" className="input" id='id3' required maxLength={3}/>
+      <input type="text" placeholder="ID:" className="input" id='id3' required maxLength={3}/>
       <input type='submit' className="defaultButton" value="Borrar" ></input>
       </form>
       </div>

@@ -6,8 +6,32 @@
 .derecha{
   margin-left: 15vw;
   margin-right: 5vw;
-  background-color: white;
   flex: 1 1 auto;
+}
+
+.logo{
+  width: 8rem;
+  height: 4rem;
+  margin: 12%;
+}
+
+.pair{
+  display: flex;
+}
+
+textarea{
+  resize:none;
+  width: 100%;
+  height: 30vh;
+}
+
+.upd{
+  height: 10vh;
+}
+
+.r1{
+  flex: 1;
+  margin-right: 10px;
 }
 
 .crud{
@@ -48,6 +72,18 @@ table,tr,td {
   font-size: 1vw;
 }
 
+.tableContainer{
+  height: 35vh;
+  overflow-y: scroll;
+}
+
+.container{
+  padding: 2%;
+  
+  background-color: white;
+  margin: 2vh 0 2vh 0;
+  border-radius: 5px;
+}
 
 .input{
   margin: 0% 1% 1% 0%;
