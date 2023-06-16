@@ -2,6 +2,39 @@ import './App.css';
 import React from "react";
 import Navbar from './components/Navbar';
 import Table6 from './components/table6';  
+import axios from 'axios';
+
+function callApi6() {
+  const id = document.getElementById('id').value;
+  const select = document.getElementById('team').value;
+
+  if (select === 1){
+      const url = `/api/accept`;
+
+  axios.put(url, {id})
+    .then(response => {
+      console.log(response.data);
+      alert('Se ha aceptado la solicitud');
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Error al aceptar la solicitud');
+    });
+  }
+  if (select === 2){
+      const url = `/api/reject`;
+
+  axios.put(url, {id})
+    .then(response => {
+      console.log(response.data);
+      alert('Se ha rechazado la solicitud');
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Error al rechazar la solicitud');
+    });
+  }
+}
 
 function hideAcepted() {
     document.getElementById("acepted").style.display = "none";
@@ -60,6 +93,17 @@ const Request = (props) => {
         </div>
             
         </div>
+        <div className='container dropShadow'>
+            <h2>Procesar solicitudes</h2>
+            <form id="updt" onSubmit={() => {callApi6(); window.location.reload(); }}>
+            <input type="text" placeholder="ID solicitud" className="input" id='id' required maxLength={4}/>
+            <select type="select"  name="Opcion:" id="selection" form='updt' required>
+                <option value={1}>Aceptar</option>
+                <option value={2}>Rechazar</option>
+              </select>
+              <input type='submit' className="defaultButton" value="Enviar" ></input>
+              </form>
+            </div>
     </div>
     </>
   );

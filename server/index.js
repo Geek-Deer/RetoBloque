@@ -319,6 +319,40 @@ app.get('/api/requests2', (req, res) => {
   });
 });
 
+app.put('/api/accept', (req, res) => {
+  const { id } = req.body;
+  const query = `UPDATE Assignment AS a1
+  JOIN Request AS r ON r.assignmentID = a1.id
+  JOIN Assignment AS a2 ON a2.id = r.assignmentResponseID
+  SET a1.taskID = a2.taskID,
+      a2.taskID = a1.taskID,
+      r.status = 1
+  WHERE r.status = 0 and r.id = ${id};`;
+  pool.query(query, (err, result) => {
+    if (err) {
+      console.error('Error executing database query:', err);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.send(`Se ha aceptado la solicitud con el id ${id}`);
+  });
+});
+
+app.put('/api/reject', (req, res) => {
+  const { id } = req.body;
+  const query = `UPDATE Request AS r
+  SET r.status = 2
+  WHERE r.status = 0 and r.id = ${id}`;
+  pool.query(query, (err, result) => {
+    if (err) {
+      console.error('Error executing database query:', err);
+      res.status(500).json({ error: 'Failed to execute database query' });
+      return;
+    }
+    res.send(`Se ha rechazado la solicitud con el id ${id}`);
+  });
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
