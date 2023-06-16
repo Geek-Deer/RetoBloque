@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(cors());
 
+/*
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: "us-cdbr-east-06.cleardb.net",
@@ -16,6 +17,15 @@ const pool = mysql.createPool({
   password: "591d2506",
   database: "heroku_702bf14e05f0f6e"
 });
+*/
+const pool = mysql.createPool({
+  connectionLimit: 10,
+  host: "database-gestionimaginantes.c3bfn4bwahre.us-west-1.rds.amazonaws.com",
+  user: "admin",
+  password: "Gestion123Imaginantes!",
+  database: "gestionImaginantes"
+});
+
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
