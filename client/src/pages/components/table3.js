@@ -14,8 +14,8 @@ function Table3({data}) {
                 <th scope="col">Matricula</th>
                 <th scope="col">ID tarea</th>
                 <th scope="col">status</th>
-                <th scope="col">Fecha de entrega</th>
-                <th scope="col">Fecha de inicio</th>
+                <th scope="col">Disponibilidad inicial</th>
+                <th scope="col">Disponibilidad final</th>
             </tr>
             </thead>
             <tbody>

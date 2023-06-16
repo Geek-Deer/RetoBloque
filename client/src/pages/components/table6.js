@@ -14,8 +14,8 @@ function Table6({data}) {
                 <th scope="col">ID asignacion</th>
                 <th scope="col">ID solicitada</th>
                 <th scope="col">Estado</th>
-                <th scope="col">Fecha Inicial</th>
-                <th scope="col">Fecha de entrega</th>
+                <th scope="col">Disponibilidad inicial</th>
+                <th scope="col">Disponibilidad final</th>
             </tr>
             </thead>
             <tbody>
