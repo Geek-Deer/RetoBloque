@@ -1,0 +1,94 @@
+#app {
+  width: 100%;
+  display: flex;
+}
+
+.derecha{
+  margin-left: 15vw;
+  margin-right: 5vw;
+  background-color: white;
+  flex: 1 1 auto;
+}
+
+.crud{
+  padding: 2%;
+}
+
+.over{
+  position: fixed;
+  right: 10vw;
+}
+
+.header{
+  background-color: #282c34;
+  border: 1% solid #36b4c5;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+h1{
+  font-size: 3vw  ;
+  color: black;
+  text-align: center;
+}
+
+h2{
+  font-size: 2vw;
+  color: black;
+}
+
+.background{
+  color: #EFF2F6;
+}
+
+table,tr,td {
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1vw;
+}
+
+
+.input{
+  margin: 0% 1% 1% 0%;
+  background-color: white;
+  border-radius: 10px;
+  color: #424b5c;
+  padding: .5rem;
+  
+}
+
+::placeholder{
+  color:#a9a9a9;
+}
+
+.defaultButton{
+  border-radius: 10px;
+  background-color: #36b4c5; 
+  color: #3D474A;
+  margin: 0 1% 1% 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.defaultButton:hover{
+  background-color: #3D474A; 
+  color: #36b4c5;   
+}
+
+button a {
+  display: block;
+  color: #3D474A;
+  padding: 5% 5%;
+  
+  text-decoration: none;
+  font-size: 1.25vw;
+}
+
+button a:hover {
+  background-color: #3D474A; 
+  color: #36b4c5;
+}

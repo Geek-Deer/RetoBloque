@@ -1,0 +1,50 @@
+import './App.css';
+import React from "react";
+import axios from 'axios';
+import Navbar from './components/Navbar';
+import Table2 from './components/table2'; 
+import { Link } from "react-router-dom";
+
+function callApi4() {
+  const id = document.getElementById('id').value;
+  const name = document.getElementById('nombre').value;
+  const decription = document.getElementById('decription').value;
+
+
+    const url = `/api/task/${id}`;
+  
+    axios.put(url, {id ,name,decription})
+      .then(response => {
+        console.log(response.data);
+        alert('Información de la actividad actualizada con exito');
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Error al buscar la actividad');
+      });
+  }
+
+const UpdateAct = (props) => {
+  const [data, setData] = React.useState(null);
+  React.useEffect(() => {
+      fetch(`/api/task`)
+        .then((res) => res.json())
+        .then((data) => setData(data));
+    }, []);
+    const info = data;
+
+    return (
+      <div className='derecha' >
+      <Navbar brand ="Actualizar datos de las actividades" />
+      <div>
+      <Table2 data={info}/>
+      <h2 className="home-text09">Ingresa los nuevos datos</h2>
+      <input type="text" placeholder="id:" className="input" id='id' />
+      <input type="text" placeholder="nombre:" className="input" id='nombre'/>
+      <input type="text" placeholder="descripción:" className="input" id='decription' />
+      <button className="defaultButton"onClick={callApi4}><Link to="/actividades">Actualizar</Link></button>
+      </div>
+      </div>
+    );
+  }
+  export default UpdateAct;
