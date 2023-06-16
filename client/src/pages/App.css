@@ -43,7 +43,6 @@ textarea{
 
 .tableContainer > div {
   flex: 1;
-  flex-direction: row;
 }
 
 .crud{
@@ -87,6 +86,8 @@ table,tr,td {
 .tableContainer{
   height: 35vh;
   overflow-y: scroll;
+  display:flex ;
+  flex-direction: row;
 }
 
 .container{
