@@ -36,14 +36,6 @@ app.get('/api/imaginantes',(req,res)=>{
   });
 });
 
-app.get('/api/imaginantes:id',(req,res)=>{
-  const { id } = req.params;
-  con.query(`SELECT * FROM user WHERE studentID = ${id}`, (error, results, fields) => {
-    if (error) throw error;
-    res.json(results);
-  });
-});
-
 app.post('/api/imaginantes/', (req, res) => {
   const { studentID , name, password, email, team } = req.body;
   const sql = `INSERT INTO user (studentID , name, password, email, tasks, team) VALUES (?, ?, ?, ?, 0, ?)`;
@@ -84,7 +76,6 @@ app.get('/api/assignments',(req,res)=>{
   });
 });
 
-
 app.post('/api/assignments', (req, res) => {
   const { id, studentID , taskID, dueDate, initialDate } = req.body;
   const sql = `INSERT INTO assignment (id, studentID , taskID, status, dueDate, initialDate) VALUES (?, ?, ?, "Started", ?, ?)`;
@@ -114,36 +105,6 @@ app.put('/api/assignments/:id', (req, res) => {
   con.query(query, (err, result) => {
     if (err) throw err;
     res.send(`La asignación con el id ${id} ha sido actualizada`);
-  });
-});
-
-//Endpoints announcements
-app.get('/api/announcements',(req,res)=>{
-  con.query("SELECT * FROM announcement", (error, results, fields) => {
-    if (error) throw error;
-    res.json(results);
-  });
-});
-
-app.post('/api/announcements/', (req, res) => {
-  const { id, content, createdAt } = req.body;
-  const sql = `INSERT INTO announcement (id, content, createdAt) VALUES (?, ?, ?)`;
-  const values = [id, content, createdAt];
-
-  con.query(sql, values, (error, results, fields) => {
-    if (error) throw error;
-    res.json({ message: 'El Anuncio se ha agregado con exito' });
-  });
-});
-
-app.delete('/api/announcements/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = `DELETE FROM announcement WHERE id = ${id}`;
-
-  con.query(sql, (error, result) => {
-    if (error) throw error;
-    console.log(`Deleted ${result.affectedRows} row(s)`);
-    res.send(`La asignación con el id: ${id} ha sido eliminada`);
   });
 });
 
@@ -196,12 +157,6 @@ app.put('/api/task/:id', (req, res) => {
   });
 });
 
-app.get('/api/announcements',(req,res)=>{
-  con.query("SELECT * FROM announcement", (error, results, fields) => {
-    if (error) throw error;
-    res.json(results);
-  });
-});
 
 app.get('/api/users',(req,res)=>{
   con.query("SELECT name, studentID FROM user;", (error, results, fields) => {

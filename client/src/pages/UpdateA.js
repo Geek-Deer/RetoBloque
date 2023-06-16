@@ -3,18 +3,20 @@ import React from "react";
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Table3 from './components/table3'; 
+import { useState } from "react";
+import Calendar from './components/Calendar';
 
 function callApi4() {
   const id = document.getElementById('id').value;
-  const studentID = document.getElementById('matricula').value;
-  const taskID = document.getElementById('IdTarea').value;
-  const status = document.getElementById('status').value;
-  const dueDate= document.getElementById('dueDate').value;
-  const initialDate= document.getElementById('initialDate').value;
+    const studentID = document.getElementById('matricula').value;
+    const taskID = document.getElementById('IDtarea').value;
+    const status = document.getElementById('status').value;
+    const dueDate = document.getElementById('dueDate').value;
+    const initialDate = document.getElementById('initialDate').value;
 
     const url = `/api/assignments/${id}`;
   
-    axios.put(url, {id ,studentID , taskID, status, dueDate,initialDate})
+    axios.put(url, {id, studentID, taskID, status, dueDate, initialDate})
       .then(response => {
         console.log(response.data);
         alert('Información de la asignación actualizada con exito');
@@ -32,7 +34,17 @@ const UpdateA = (props) => {
         .then((res) => res.json())
         .then((data) => setData(data));
     }, []);
+
     const info = data;
+    const [calendarValue, setCalendarValue] = useState("");
+    const [calendarValue2, setCalendarValue2] = useState("");
+ 
+    const handleCalendarChange = (element, currentValue) => {
+      setCalendarValue(currentValue);
+    };
+    const handleCalendarChange2 = (element, currentValue2) => {
+        setCalendarValue2(currentValue2);
+      };
 
     return (
       <div className='derecha' >
@@ -40,13 +52,26 @@ const UpdateA = (props) => {
       <div>
       <Table3 data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
-      <form onSubmit={() => {callApi4(); window.location.reload(); }}>
-      <input type="text" placeholder="matricula:" className="input" id='id' />
-      <input type="text" placeholder="nombre:" className="input" id='nombre'/>
-      <input type="text" placeholder="password:" className="input" id='password' />
-      <input type="text" placeholder="email:" className="input" id='email'/>
-      <input type="text" placeholder="equipo:" className="input" id='team' />
-      <input type='submit' className="defaultButton" value="Actualizar" ></input>
+      <form onSubmit={() => { callApi4(); window.location.reload(); }} >
+      <input type="text" placeholder="id:" className="input" id='id' required maxLength={3}/>
+      <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
+      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
+      <input type="text" placeholder="Estatus" className="input" id='status' required maxLength={2}/>
+      <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
+      <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
+      <input type='submit' className="defaultButton" value="Registrar"></input>
+      <Calendar options={{
+          format: 'YYYY-MM-DD HH:MM:SS',
+          time: true,
+          placeholder: "Fecha de entrega",
+        onchange: handleCalendarChange,
+        }}/>
+        <Calendar options={{
+        placeholder: "Fecha de inicio",
+        onchange: handleCalendarChange2,
+          format: 'YYYY-MM-DD HH:MM:SS',
+          time: true,
+        }}/>
       </form>
       </div>
       </div>

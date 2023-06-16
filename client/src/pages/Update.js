@@ -41,11 +41,11 @@ const Update = (props) => {
       <Table data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
       <form onSubmit={() => {callApi4(); window.location.reload(); }}>
-      <input type="text" placeholder="matricula:" className="input" id='id' required/>
-      <input type="text" placeholder="nombre:" className="input" id='nombre' required/>
-      <input type="text" placeholder="password:" className="input" id='password' required/>
-      <input type="text" placeholder="email:" className="input" id='email' required/>
-      <input type="text" placeholder="equipo:" className="input" id='team' required/>
+      <input type="text" placeholder="matricula:" className="input" id='id' required maxLength={9} minLength={9}/>
+      <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
+      <input type="text" placeholder="password:" className="input" id='password' required maxLength={20}/>
+      <input type="text" placeholder="email:" className="input" id='email' required maxLength={80}/>
+      <input type="text" placeholder="equipo:" className="input" id='team' required maxLength={2}/>
       <input type='submit' className="defaultButton" value="Actualizar" ></input>
       </form>
       </div>

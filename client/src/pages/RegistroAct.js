@@ -32,9 +32,9 @@ const RegistroAct = (props) =>{
       <h2 className="home-text08">Ingresar datos</h2>
       <div className="home-container1">
       <form onSubmit={() => { callApi3(); window.location.reload(); }} >
-      <input type="text" placeholder="ID:" className="input" id='id' required/>
-      <input type="text" placeholder="Nombre:" className="input" id='name' required/>
-      <input type="text" placeholder="Descripción:" className="input" id='decription' required/>
+      <input type="text" placeholder="ID:" className="input" id='id' required maxLength={3}/>
+      <input type="text" placeholder="Nombre:" className="input" id='name' required maxLength={80}/>
+      <textarea type="text" placeholder="Descripción:" className="input" id='decription' maxLength={250} required/>
       <input type='submit' className="defaultButton" value="Registrar"></input>
       </form>
       </div>
@@ -43,5 +43,5 @@ const RegistroAct = (props) =>{
       </div>
       </>
     );
-  }
+  } 
   export default RegistroAct;

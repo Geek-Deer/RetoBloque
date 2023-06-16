@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Row from './row.js';
+import "./table.css"
+
 
 function Table({data}) {
     const table = data?.map(imaginante =>
@@ -7,15 +9,15 @@ function Table({data}) {
     ); 
     return(
         <div>
-        <table className="table table-hover table-dark">
+        <table>
             <thead>
             <tr>
-                <th scope="col">Matricula</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Contraseña</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Tareas</th>
-                <th scope="col">Equipo</th>
+                <th >Matricula</th>
+                <th >Nombre</th>
+                <th >Contraseña</th>
+                <th >E-mail</th>
+                <th >Tareas</th>
+                <th >Equipo</th>
             </tr>
             </thead>
             <tbody>
@@ -26,3 +28,4 @@ function Table({data}) {
         );
       };
   export default Table;
+

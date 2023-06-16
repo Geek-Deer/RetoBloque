@@ -23,7 +23,7 @@ function callApi4() {
         alert('Error al buscar la actividad');
       });
   }
-
+ 
 const UpdateAct = (props) => {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
@@ -40,9 +40,9 @@ const UpdateAct = (props) => {
       <Table2 data={info}/>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
       <form onSubmit={() => {callApi4(); window.location.reload(); }}>
-      <input type="text" placeholder="id:" className="input" id='id' />
-      <input type="text" placeholder="nombre:" className="input" id='nombre'/>
-      <input type="text" placeholder="descripción:" className="input" id='decription' />
+      <input type="text" placeholder="id:" className="input" id='id'required maxLength={3} />
+      <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
+      <textarea type="text" placeholder="descripción:" className="input" id='decription' maxLength={250} require/>
       <input type='submit' className="defaultButton" value="Actualizar" ></input>
       </form>
       </div>
