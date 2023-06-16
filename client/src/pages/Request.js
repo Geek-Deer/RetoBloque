@@ -37,7 +37,7 @@ const Request = (props) => {
         <div className='r1'>
             <h2>Lista de solicitudes pendientes</h2>
             <br/><br/>
-            <Table6 data={data2}/>
+            <Table6 data={data}/>
         </div>
         <div className='r1'>
             <h2>Lista de solicitudes revisadas</h2>
