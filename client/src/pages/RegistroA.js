@@ -71,27 +71,30 @@ const RegistroA = (props) =>{
           <div className='r1'><Table5 data={data3}/></div>
             
         </div>
-      <h2 className="home-text08">Ingresar datos</h2>
-      <div className="home-container1">
-      <form onSubmit={() => { callApi3(); window.location.reload(); }} >
-      <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
-      <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
-      <input type="text" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required />
-      <input type="text" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
-      <input type='submit' className="defaultButton" value="Registrar"></input>
-      </form>
-      <Calendar options={{
-          format: 'YYYY-MM-DD HH:MM:SS',
-          time: true,
-          placeholder: "Fecha de entrega",
-        onchange: handleCalendarChange,
-        }}/>
-        <Calendar options={{
-        placeholder: "Fecha de inicio",
-        onchange: handleCalendarChange2,
-          format: 'YYYY-MM-DD HH:MM:SS',
-          time: true,
-        }}/>
+        <div>
+          <h2 className="home-text08">Ingresar datos</h2>
+          <div className="home-container1">
+          <form onSubmit={() => { callApi3(); window.location.reload(); }} >
+          <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
+          <input type="text" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
+          <input type="hidden" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required />
+          <input type="hidden" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
+          <input type='submit' className="defaultButton" value="Registrar"></input>
+          </form>
+          <Calendar options={{
+              format: 'YYYY-MM-DD HH:MM:SS',
+              time: true,
+              placeholder: "Fecha de entrega",
+            onchange: handleCalendarChange,
+            }}/>
+            <Calendar options={{
+            placeholder: "Fecha de inicio",
+            onchange: handleCalendarChange2,
+              format: 'YYYY-MM-DD HH:MM:SS',
+              time: true,
+            }}/>          
+        </div>
+
         <Table3 data={data}/>
         <button className="defaultButton"><Link to="/Asignar">Regresar</Link></button>
       </div>
