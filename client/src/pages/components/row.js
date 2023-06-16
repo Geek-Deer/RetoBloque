@@ -2,7 +2,15 @@ import React from 'react';
 
 
 export default function Row({id , nombre, password, email,tareas,equipo}) {
-  
+    if(equipo == 1){
+        var equipoN = "Comunicación"
+      }
+      if(equipo == 2){
+        var equipoN = "Contenido"
+      }
+      if(equipo == 3){
+        var equipoN = "Contenido"
+      }
     return (
 
         <tr>
