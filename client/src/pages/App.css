@@ -132,7 +132,7 @@ table,tr,td {
 .defaultButton{
   border-radius: 10px;
   background-color: #36b4c5; 
-  color: #3D474A;
+  color: white;
   padding: .5em;
   margin: 0 .5vw 1vh 0;
   font-size: calc(12px + .2vw);
