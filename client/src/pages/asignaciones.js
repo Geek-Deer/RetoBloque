@@ -49,7 +49,6 @@ const Asignaciones = (props) => {
       <input type='submit' className="defaultButton" value="Borrar" ></input>
       </form>
       </div>
-      <button className="defaultButton" onClick={() => { callApi5(); window.location.reload(); }}>Borrar</button>
       </div>
     </div>
     </>

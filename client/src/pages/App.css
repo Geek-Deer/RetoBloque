@@ -52,6 +52,7 @@ textarea{
 
 .over{
   position: fixed;
+  top: 5vh;
   right: 10vw;
 }
 
@@ -107,9 +108,9 @@ table,tr,td {
   border-radius: 10px;
   color: #424b5c;
   padding: .5rem;
+  font-size: calc(12px + .2vw);
   width: 10vw;
   height: 6vh;
-  
 }
 
 ::placeholder{
