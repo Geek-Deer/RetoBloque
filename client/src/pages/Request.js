@@ -8,7 +8,7 @@ function callApi6() {
   const id = document.getElementById('id').value;
   const select = document.getElementById('selection').value;
 
-  if (select === 1){
+  if (select == 1){
       const url = `/api/accept`;
 
   axios.put(url, {id})
@@ -21,7 +21,7 @@ function callApi6() {
       alert('Error al aceptar la solicitud');
     });
   }
-  if (select === 2){
+  if (select == 2){
       const url = `/api/reject`;
 
   axios.put(url, {id})
