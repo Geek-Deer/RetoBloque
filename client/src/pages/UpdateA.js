@@ -67,7 +67,7 @@ const UpdateA = (props) => {
         <input type="hidden" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
         <input type="hidden" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
         <Calendar className="input"options={{
-          placeholder: "Fecha de inicio",
+          placeholder: "Disponibilidad inicial",
           onchange: handleCalendarChange2,
             format: 'YYYY-MM-DD HH:MM:SS',
             time: true,
@@ -75,7 +75,7 @@ const UpdateA = (props) => {
         <Calendar className="input"options={{
             format: 'YYYY-MM-DD HH:MM:SS',
             time: true,
-            placeholder: "Fecha de entrega",
+            placeholder: "Disponibilidad final",
           onchange: handleCalendarChange,
           }}/>
           <br></br>

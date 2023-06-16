@@ -84,11 +84,11 @@ const RegistroA = (props) =>{
           <Calendar options={{
               format: 'YYYY-MM-DD HH:MM:SS',
               time: true,
-              placeholder: "Fecha de entrega",
+              placeholder: "Disponibilidad inicial",
             onchange: handleCalendarChange,
             }}/>
             <Calendar options={{
-            placeholder: "Fecha de inicio",
+            placeholder: "Disponibilidad final",
             onchange: handleCalendarChange2,
               format: 'YYYY-MM-DD HH:MM:SS',
               time: true,

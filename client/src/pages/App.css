@@ -144,13 +144,13 @@ table,tr,td {
 }
 
 .defaultButton:hover{
-  background-color: #3D474A; 
+  background-color: white; 
   color: #36b4c5;   
 }
 
 button a {
   display: block;
-  color: #3D474A;
+  color: white;
   padding: .5em;
   
   text-decoration: none;
