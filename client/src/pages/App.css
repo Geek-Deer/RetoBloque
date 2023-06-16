@@ -41,6 +41,15 @@ textarea{
   margin-right: 10px;
 }
 
+.tableContainer > div {
+  flex: 1;
+  margin-right: 5%;
+}
+
+.tableContainer > div:last-child {
+  margin-right: 0;
+}
+
 .crud{
   padding: 2%;
 }
