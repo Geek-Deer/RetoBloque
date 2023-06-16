@@ -5,10 +5,20 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import { Link } from "react-router-dom";
 
+function generateRandomPassword(length) {
+  const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    password += charset[randomIndex];
+  }
+  return password;
+}
+
 function callApi3() {
     const studentID = document.getElementById('id').value;
     const name = document.getElementById('nombre').value;
-    const password = document.getElementById('password').value;
+    const password = generateRandomPassword(20);
     const email = document.getElementById('email').value;
     const team = 0;
     
@@ -36,7 +46,6 @@ const Registro = (props) =>{
         <form onSubmit={() => { callApi3(); window.location.reload(); }}>
           <input type="text" placeholder="matricula:" className="input" id='id' required maxLength={9} minLength={9}/>
           <input type="text" placeholder="nombre:" className="input" id='nombre' required maxLength={80}/>
-          <input type="text" placeholder="password:" className="input" id='password' required maxLength={20}/>
           <input type="text" placeholder="email:" className="input" id='email' required maxLength={80}/>
         <input type='submit' className="defaultButton" value="Registrar" ></input>
       </form>
