@@ -22,9 +22,10 @@
 }
 
 select{
-  padding: 2%;
+  padding: 1.5em;
   font-size:calc(8px + .2vw); 
-  margin: 0 1% 1% 0;
+  border-radius: 5px;
+  margin: 0 1% 1% 1%;
 }
 
 .pair{
@@ -92,16 +93,14 @@ table,tr,td {
 
 .tableContainer{
   height: 35vh;
+  margin-bottom: 2vh;
   overflow-y: scroll;
   display:flex ;
   flex-direction: row;
 }
 
-
-
 .container{
   padding: 2%;
-  
   background-color: white;
   margin: 2vh 0 2vh 0;
   border-radius: 5px;

@@ -14,10 +14,6 @@ function hideAcepted() {
     document.getElementById("acepted").style.display = "block";
   }
 
-function getRow() {
-    alert(document.getElementById("myTable").rows[0]);
-  }
-
 const Request = (props) => {
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
@@ -37,7 +33,6 @@ const Request = (props) => {
         .then((res) => res.json())
         .then((data) => setData3(data));
     }, []);
-    var Data;
   return (
     <>
     <div className='derecha' >

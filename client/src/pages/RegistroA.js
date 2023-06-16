@@ -94,8 +94,10 @@ const RegistroA = (props) =>{
               time: true,
             }}/>          
         </div>
-
-        <Table3 data={data}/>
+        <div className='tableContainer'>
+          <Table3 data={data}/>
+        </div>
+        
         <button className="defaultButton"><Link to="/Asignar">Regresar</Link></button>
       </div>
       </div>
