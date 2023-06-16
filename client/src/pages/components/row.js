@@ -19,7 +19,7 @@ export default function Row({id , nombre, password, email,tareas,equipo}) {
             <td>{password}</td>
             <td>{email}</td>
             <td>{tareas}</td>
-            <td>{equipo}</td>
+            <td>{equipoN}</td>
         </tr>
 
     );
