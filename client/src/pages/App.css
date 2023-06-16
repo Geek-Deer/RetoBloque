@@ -38,7 +38,7 @@ textarea{
 
 .r1{
   width: 45%;
-  margin-right: 10px;
+  overflow-y: scroll;
 }
 
 .tableContainer > div {
@@ -89,6 +89,8 @@ table,tr,td {
   display:flex ;
   flex-direction: row;
 }
+
+
 
 .container{
   padding: 2%;
