@@ -71,7 +71,7 @@ const RegistroA = (props) =>{
           <div className='r1'><Table5 data={data3}/></div>
             
         </div>
-        <div>
+        <div className='container dropShadow'>
           <h2 className="home-text08">Ingresar datos</h2>
           <div className="home-container1">
           <form onSubmit={() => { callApi3(); window.location.reload(); }} >
