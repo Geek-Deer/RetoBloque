@@ -7,7 +7,7 @@ function Table6({data}) {
     ); 
     return(
         <div>
-        <table className="table table-hover table-dark" id="table">
+        <table className="table table-hover" id="table">
             <thead>
             <tr>
                 <th scope="col">ID Solicitud</th>

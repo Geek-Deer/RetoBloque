@@ -7,7 +7,7 @@ function Table5({data}) {
     ); 
     return(
         <div>
-        <table className="table table-hover table-dark">
+        <table className="table table-hover">
             <thead>
             <tr>
                 <th scope="col">ID Tarea</th>

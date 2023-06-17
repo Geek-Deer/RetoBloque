@@ -8,7 +8,7 @@ function Table({data}) {
     ); 
     return(
         <div>
-        <table className="table table-hover table-dark">
+        <table className="table table-hover">
             <thead>
             <tr>
                 <th >Matricula</th>
