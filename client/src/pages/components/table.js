@@ -4,7 +4,7 @@ import "./table.css"
 
 function Table({data}) {
     const table = data?.map(imaginante =>
-        <Row id = {imaginante.studentID} nombre = {imaginante.name} password ={imaginante.password} email ={imaginante.email} tareas = {imaginante.tasks} equipo = {imaginante.team}/>
+        <Row id = {imaginante.studentID} nombre = {imaginante.name} email ={imaginante.email} tareas = {imaginante.tasks} equipo = {imaginante.team}/>
     ); 
     return(
         <div>
