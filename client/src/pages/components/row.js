@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function Row({id , nombre, password, email,tareas,equipo}) {
+export default function Row({id , nombre, email,tareas,equipo}) {
     if(equipo == 0){
         var equipoN = "Por asignar"
     }
@@ -19,7 +19,6 @@ export default function Row({id , nombre, password, email,tareas,equipo}) {
         <tr>
             <td>{id}</td>
             <td>{nombre}</td>
-            <td>{password}</td>
             <td>{email}</td>
             <td>{tareas}</td>
             <td>{equipoN}</td>
