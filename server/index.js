@@ -33,7 +33,7 @@ pool.getConnection((err, connection) => {
 });
 
 app.get('/api/imaginantes', (req, res) => {
-  pool.query("SELECT * FROM user", (error, results, fields) => {
+  pool.query("SELECT studentID, name, email, tasks, team  FROM user", (error, results, fields) => {
     if (error) {
       console.error('Error executing database query:', error);
       res.status(500).json({ error: 'Failed to execute database query' });

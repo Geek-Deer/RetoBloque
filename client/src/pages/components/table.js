@@ -13,7 +13,6 @@ function Table({data}) {
             <tr>
                 <th >Matricula</th>
                 <th >Nombre</th>
-                <th >Contraseña</th>
                 <th >E-mail</th>
                 <th >Tareas</th>
                 <th >Equipo</th>
