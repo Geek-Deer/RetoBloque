@@ -59,11 +59,14 @@ const UpdateA = (props) => {
       </div>
      <div className='container dropShadow'>
       <h2 className="home-text09">Ingresa los nuevos datos</h2>
-      <form onSubmit={() => { callApi4(); window.location.reload(); }} >
+      <form id='updtA' onSubmit={() => { callApi4(); window.location.reload(); }} >
         <input type="number" placeholder="id:" className="input" id='id' required maxLength={3}/>
         <input type="text" placeholder="Matricula" className="input" id='matricula' required maxLength={9} minLength={9}/>
         <input type="number" placeholder="ID Tarea" className="input" id='IDtarea' required maxLength={3}/>
-        <input type="text" placeholder="Estatus" className="input" id='status' required maxLength={2}/>
+        <select type="select"  name="Estado:" id="status" form='updtA' required>
+                <option value={0}>Pendiente</option>
+                <option value={1}>Aprobado</option>
+              </select>
         <input type="hidden" placeholder="Fecha final" value={calendarValue} className="input" id='dueDate' disabled required/>
         <input type="hidden" placeholder="Fecha de inicio" value={calendarValue2} className="input" id='initialDate' disabled required/>
         <Calendar className="input"options={{

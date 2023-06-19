@@ -12,7 +12,7 @@ export default function Row({id , nombre, email,tareas,equipo}) {
     var equipoN = "Contenido"
     }
     if(equipo == 3){
-    var equipoN = "Contenido"
+    var equipoN = "Estaciones de Juego"
       }
     return (
 
